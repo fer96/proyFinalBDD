@@ -23,8 +23,8 @@ connect ilap_bdd/ilap_bdd@mved_s1
 prompt =====================================
 prompt creando sinonimos para fldrsbd_s2 
 prompt ===================================== 
-connect ilap_bdd/ilap_bdd@fldrsbd_s2 
-@s-04-ilap-fldrsbd-s2-sinonimos.sql 
+connect ilap_bdd/ilap_bdd@fdlrsbd_s2 
+@s-04-ilap-fdlrsbd-s2-sinonimos.sql 
 @s-04-ilap-valida-sinonimos.sql
 
 prompt ===================================== 

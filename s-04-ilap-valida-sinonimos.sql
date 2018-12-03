@@ -46,10 +46,10 @@ select count(*) from laptop_inventario_f1
 union
 select count(*) from laptop_inventario_f2;
 
-Prompt validando sinonimos para historio_status_laptop 
-select count(*) from historio_status_laptop_f1
+Prompt validando sinonimos para historico_status_laptop 
+select count(*) from historico_status_laptop_f1
 union
-select count(*) from historio_status_laptop_f2;
+select count(*) from historico_status_laptop_f2;
 
 Prompt validando sinonimos para servicio_laptop 
 select count(*) from servicio_laptop_f1

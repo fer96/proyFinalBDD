@@ -65,7 +65,7 @@ begin
   raise;
 end;
 /
-show erros;
+show errors;
 
 Prompt creando funcion para extraer dato BLOB de servicio_laptop_f2
 
@@ -97,7 +97,7 @@ begin
   raise;
 end;
 /
-show erros;
+show errors;
 
 Prompt creando funcion para extraer dato BLOB de servicio_laptop_f3
 
@@ -129,7 +129,7 @@ begin
   raise;
 end;
 /
-show erros;
+show errors;
 
 Prompt creando funcion para extraer dato BLOB de servicio_laptop_f4
 
@@ -161,4 +161,4 @@ begin
   raise;
 end;
 /
-show erros;
+show errors;

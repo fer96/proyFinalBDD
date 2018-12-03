@@ -17,15 +17,15 @@ connect sys/&&syspass@fdlrsbd_s1 as sysdba
 @s-01-ilap-usuario.sql
 
 prompt =====================================
-prompt Creando usuario en fdlrsbd_s1
+prompt Creando usuario en fdlrsbd_s2
 prompt =====================================
-connect sys/&&syspass@fdlrsbd_s1 as sysdba 
+connect sys/&&syspass@fdlrsbd_s2 as sysdba 
 @s-01-ilap-usuario.sql
 
 prompt ===================================== 
 prompt Creando usuario en mved_s1
 prompt ===================================== 
-connect sys/&&syspass@mved_s2 as sysdba 
+connect sys/&&syspass@mved_s1 as sysdba 
 @s-01-ilap-usuario.sql
 
 prompt =====================================                     
