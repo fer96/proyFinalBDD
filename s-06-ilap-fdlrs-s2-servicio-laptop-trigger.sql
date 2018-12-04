@@ -11,7 +11,7 @@ begin
 	case
 		when inserting then
 			select count(*) into v_count
-			from laptop_f3
+			from laptop_f4
 			where laptop_id =:new.laptop_id;
 			--insercion local
 			if v_count > 0 then
@@ -28,7 +28,7 @@ begin
 				delete from ti_servicio_laptop_f3 where laptop_id = :new.laptop_id and num_servicio = :new.num_servicio;
 			else
 				select count(*) into v_count
-				from laptop_f2
+				from laptop_f3
 				where laptop_id =:new.laptop_id;
 				--insercion remota s2
 				if v_count > 0 then
@@ -45,7 +45,7 @@ begin
 					delete from ti_servicio_laptop_f2 where laptop_id = :new.laptop_id and num_servicio = :new.num_servicio;
 				else
 					select count(*) into v_count
-					from laptop_f1
+					from laptop_f2
 					where laptop_id =:new.laptop_id;
 					--insercion remota s1
 					if v_count > 0 then
@@ -62,7 +62,7 @@ begin
 						delete from ti_servicio_laptop_f1 where laptop_id = :new.laptop_id and num_servicio = :new.num_servicio;
 					else 
 						select count(*) into v_count
-						from laptop_f4
+						from laptop_f5
 						where laptop_id =:new.laptop_id;
 						--insercion remota s4
 						if v_count > 0 then
@@ -89,28 +89,28 @@ begin
 				Se intentó realizar una operación update. Para proósitos del proyecto, esta operación no estará implementada.');
 		when deleting then
 			select count(*) into v_count
-			from laptop_f3
+			from laptop_f4
 			where laptop_id =:old.laptop_id;
 			--delete local
 			if v_count > 0 then
 				delete from servicio_laptop_f3 where laptop_id = :old.laptop_id and num_servicio = :old.num_servicio;
 			else
 				select count(*) into v_count
-				from laptop_f2
+				from laptop_f3
 				where laptop_id =:old.laptop_id;
 				--delete remota s2
 				if v_count > 0 then
 					delete from servicio_laptop_f2 where laptop_id = :old.laptop_id and num_servicio = :old.num_servicio;
 				else
 					select count(*) into v_count
-					from laptop_f1
+					from laptop_f2
 					where laptop_id =:old.laptop_id;
 					--delete remota s3
 					if v_count > 0 then
 						delete from servicio_laptop_f1 where laptop_id = :old.laptop_id and num_servicio = :old.num_servicio;
 					else 
 						select count(*) into v_count
-						from laptop_f4
+						from laptop_f5
 						where laptop_id =:old.laptop_id;
 						--delete remota s4
 						if v_count > 0 then
