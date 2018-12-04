@@ -11,7 +11,7 @@ begin
 	case
 		when inserting then
 			select count(*) into v_count
-			from servicio_laptop_f4
+			from laptop_f4
 			where laptop_id = :new.laptop_id;
 			--inserción local
 			if v_count > 0 then
@@ -24,7 +24,7 @@ begin
 				delete from ti_servicio_laptop_f4 where laptop_id = :new.laptop_id and num_servicio = :new.num_servicio;
 			else
 				select count(*) into v_count
-				from servicio_laptop_f1
+				from laptop_f1
 				where laptop_id = :new.laptop_id;
 				--inserción local servicio_laptop_f1
 				if v_count > 0 then
@@ -37,7 +37,7 @@ begin
 					delete from ti_servicio_laptop_f1 where laptop_id = :new.laptop_id and num_servicio = :new.num_servicio;
 				else
 					select count(*) into v_count
-					from servicio_laptop_f3
+					from laptop_f3
 					where laptop_id = :new.laptop_id;
 					--inserción local servicio_laptop_f3
 					if v_count > 0 then
@@ -50,7 +50,7 @@ begin
 						delete from ti_servicio_laptop_f3 where laptop_id = :new.laptop_id and num_servicio = :new.num_servicio;
 					else
 						select count(*) into v_count
-						from servicio_laptop_f2
+						from laptop_f2
 						where laptop_id = :new.laptop_id;
 						--inserción local servicio_laptop_f2
 						if v_count > 0 then
@@ -72,28 +72,28 @@ begin
 			raise_application_error(-20030,'Se intentó realizar una operación update. Para proósitos del proyecto, esta operación no estará implementada.');
 		when deleting then
 			select count(*) into v_count
-			from servicio_laptop_f4
+			from laptop_f4
 			where laptop_id = :new.laptop_id;
 			--inserción local
 			if v_count > 0 then
 				delete from servicio_laptop_f4 where laptop_id = :new.laptop_id and num_servicio = :new.num_servicio;
 			else
 				select count(*) into v_count
-				from servicio_laptop_f1
+				from laptop_f1
 				where laptop_id = :new.laptop_id;
 				--inserción local servicio_laptop_f1
 				if v_count > 0 then
 					delete from servicio_laptop_f1 where laptop_id = :new.laptop_id and num_servicio = :new.num_servicio;
 				else
 					select count(*) into v_count
-					from servicio_laptop_f3
+					from laptop_f3
 					where laptop_id = :new.laptop_id;
 					--inserción local servicio_laptop_f3
 					if v_count > 0 then
 						delete from servicio_laptop_f3 where laptop_id = :new.laptop_id and num_servicio = :new.num_servicio;
 					else
 						select count(*) into v_count
-						from servicio_laptop_f2
+						from laptop_f2
 						where laptop_id = :new.laptop_id;
 						--inserción local servicio_laptop_f4
 						if v_count > 0 then

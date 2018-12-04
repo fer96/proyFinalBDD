@@ -42,32 +42,3 @@ create or replace synonym servicio_laptop_f2 for servicio_laptop_f2_mved_s2@mved
 create or replace synonym servicio_laptop_f3 for servicio_laptop_f3_drf_s3;
 create or replace synonym servicio_laptop_f4 for servicio_laptop_f4_mved_s4@mved_s2.fi.unam;
 
---tipo procesador
-create or replace synonym tipo_procesador_s1 for tipo_procesador_drf_s1@fdlrsbd_s1.unam.fi;
-create or replace synonym tipo_procesador_s2 for tipo_procesador_mved_s2@mved_s1.fi.unam;
-create or replace synonym tipo_procesador_s3 for tipo_procesador_drf_s3;
-create or replace synonym tipo_procesador_s4 for tipo_procesador_mved_s4@mved_s2.fi.unam;
-
---tipo tarjeta de video
-create or replace synonym tipo_tarjeta_video_s1 for tipo_tarjeta_video_drf_s1@fdlrsbd_s1.unam.fi;
-create or replace synonym tipo_tarjeta_video_s2 for tipo_tarjeta_video_mved_s2@mved_s1.fi.unam;
-create or replace synonym tipo_tarjeta_video_s3 for tipo_tarjeta_video_drf_s3;
-create or replace synonym tipo_tarjeta_video_s4 for tipo_tarjeta_video_mved_s4@mved_s2.fi.unam;
-
---tipo almacenamiento
-create or replace synonym tipo_almacenamiento_s1 for tipo_almacenamiento_drf_s1@fdlrsbd_s1.unam.fi;
-create or replace synonym tipo_almacenamiento_s2 for tipo_almacenamiento_mved_s2@mved_s1.fi.unam;
-create or replace synonym tipo_almacenamiento_s3 for tipo_almacenamiento_drf_s3;
-create or replace synonym tipo_almacenamiento_s4 for tipo_almacenamiento_mved_s4@mved_s2.fi.unam;
-
---tipo monitor
-create or replace synonym tipo_monitor_s1 for tipo_monitor_drf_s1@fdlrsbd_s1.unam.fi;
-create or replace synonym tipo_monitor_s2 for tipo_monitor_mved_s2@mved_s1.fi.unam;
-create or replace synonym tipo_monitor_s3 for tipo_monitor_drf_s3;
-create or replace synonym tipo_monitor_s4 for tipo_monitor_mved_s4@mved_s2.fi.unam;
-
---status laptop
-create or replace synonym status_laptop_s1 for status_laptop_drf_s1@fdlrsbd_s1.unam.fi;
-create or replace synonym status_laptop_s2 for status_laptop_mved_s2@mved_s1.fi.unam;
-create or replace synonym status_laptop_s3 for status_laptop_drf_s3;
-create or replace synonym status_laptop_s4 for status_laptop_mved_s4@mved_s2.fi.unam;

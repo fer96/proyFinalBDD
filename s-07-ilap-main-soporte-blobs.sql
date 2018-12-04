@@ -14,7 +14,7 @@ connect ilap_bdd/ilap_bdd@fdlrsbd_s1
 Prompt configurando directorios y otorgando registros.
 Prompt configurando soporte BLOB para mved_s1 
 
-connect ilap_bdd/ilap_bdd@jmved_s1 
+connect ilap_bdd/ilap_bdd@mved_s1 
 @s-07-ilap-configuracion-soporte-blobs.sql
 
 --fdlrsbd_s2

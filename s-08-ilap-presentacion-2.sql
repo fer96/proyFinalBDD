@@ -13,7 +13,8 @@ Prompt ======================================
 connect ilap_bdd/ilap_bdd@fdlrsbd_s1
 delete from tipo_procesador;
 delete from tipo_tarjeta_video;
-delete from tipo_almacenamiento; delete from tipo_monitor;
+delete from tipo_almacenamiento; 
+delete from tipo_monitor;
 delete from status_laptop; 
 @carga-inicial/tipo_procesador.sql 
 @carga-inicial/tipo_tarjeta_video.sql 
@@ -29,7 +30,8 @@ Prompt ======================================
 connect ilap_bdd/ilap_bdd@mved_s1
 delete from tipo_procesador;
 delete from tipo_tarjeta_video;
-delete from tipo_almacenamiento; delete from tipo_monitor;
+delete from tipo_almacenamiento; 
+delete from tipo_monitor;
 delete from status_laptop; 
 @carga-inicial/tipo_procesador.sql 
 @carga-inicial/tipo_tarjeta_video.sql 
@@ -45,7 +47,8 @@ Prompt ======================================
 connect ilap_bdd/ilap_bdd@fdlrsbd_s2
 delete from tipo_procesador;
 delete from tipo_tarjeta_video;
-delete from tipo_almacenamiento; delete from tipo_monitor;
+delete from tipo_almacenamiento;
+delete from tipo_monitor;
 delete from status_laptop; 
 @carga-inicial/tipo_procesador.sql 
 @carga-inicial/tipo_tarjeta_video.sql 
@@ -61,7 +64,8 @@ Prompt ======================================
 connect ilap_bdd/ilap_bdd@mved_s2
 delete from tipo_procesador;
 delete from tipo_tarjeta_video;
-delete from tipo_almacenamiento; delete from tipo_monitor;
+delete from tipo_almacenamiento;
+delete from tipo_monitor;
 delete from status_laptop; 
 @carga-inicial/tipo_procesador.sql 
 @carga-inicial/tipo_tarjeta_video.sql 
