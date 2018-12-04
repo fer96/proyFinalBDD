@@ -36,3 +36,5 @@ begin
 			end if;
 	end case;
 end;
+/
+show errors;

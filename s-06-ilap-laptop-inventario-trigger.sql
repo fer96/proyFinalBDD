@@ -20,3 +20,5 @@ begin
 			delete from laptop_inventario_f2 where laptop_id = :old.laptop_id;
 	end case;
 end;
+/
+show errors;
