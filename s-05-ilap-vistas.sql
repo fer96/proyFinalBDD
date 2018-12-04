@@ -38,7 +38,7 @@ create or replace view laptop_inventario as
 	select f1.laptop_id,f1.rfc_cliente,f1.num_tarjeta,f2.sucursal_id,f2.fecha_status,f2.status_laptop_id 
 	from laptop_inventario_f1 f1
 	join laptop_inventario_f2 f2
-	on f1.laptop_id = f2.laptop_id
+	on f1.laptop_id = f2.laptop_id;
 
 
 --historico status laptop

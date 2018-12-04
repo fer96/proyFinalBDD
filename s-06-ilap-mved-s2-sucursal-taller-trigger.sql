@@ -56,28 +56,28 @@ begin
 			where sucursal_id = :new.sucursal_id;
 			--inserción local
 			if v_count > 0 then
-				delete from sucursal_taller_f2 where sucursal_id = :old.sucursal_id
+				delete from sucursal_taller_f2 where sucursal_id = :old.sucursal_id;
 			else
 				select count(*) into v_count
 				from sucursal_taller_f1
 				where sucursal_id = :new.sucursal_id;
 				--insercion remota en s1
 				if v_count > 0 then
-					delete from sucursal_taller_f1 where sucursal_id = :old.sucursal_id
+					delete from sucursal_taller_f1 where sucursal_id = :old.sucursal_id;
 				else
 					select count(*) into v_count
 					from sucursal_taller_f3
 					where sucursal_id = :new.sucursal_id;
 					--insercion remota en s3
 					if v_count > 0 then
-						delete from sucursal_taller_f3 where sucursal_id = :old.sucursal_id
+						delete from sucursal_taller_f3 where sucursal_id = :old.sucursal_id;
 					else
 						select count(*) into v_count
 						from sucursal_taller_f4
 						where sucursal_id = :new.sucursal_id;
 						--insercion remota en s4
 						if v_count > 0 then
-							delete from sucursal_taller_f4 where sucursal_id = :old.sucursal_id
+							delete from sucursal_taller_f4 where sucursal_id = :old.sucursal_id;
 						else
 						raise_application_error(-20020,'El registro que se intenta insertar o eliminar no cumple con el esquema de fragmentación horizontal derivada.');
 						end if;

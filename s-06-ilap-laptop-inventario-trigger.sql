@@ -10,9 +10,9 @@ begin
 	case
 		when inserting then
 			insert into laptop_inventario_f1(laptop_id,rfc_cliente,num_tarjeta)
-			values(:new.laptop_id,:new.rfc_cliente,new.num_tarjeta);
+			values(:new.laptop_id,:new.rfc_cliente,:new.num_tarjeta);
 			insert into laptop_inventario_f2(laptop_id,fecha_status,sucursal_id,status_laptop_id)
-			values(:new.laptop_id,:new.fecha_status,:new.sucursal_id,:new.status_laptop_id)
+			values(:new.laptop_id,:new.fecha_status,:new.sucursal_id,:new.status_laptop_id);
 		when updating then
 			raise_application_error(-20030,'Se intentó realizar una operación update. Para proósitos del proyecto, esta operación no estará implementada.');
 		when deleting then

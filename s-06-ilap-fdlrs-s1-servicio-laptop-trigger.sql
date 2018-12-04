@@ -19,8 +19,11 @@ begin
 					importe,diagnostico,factura)
 				values(:new.laptop_id,:new.num_servicio,:new.sucursal_id,
 					:new.importe,:new.diagnostico,:new.factura);
-				insert into servicio_laptop_f1
-				select * from ti_servicio_laptop_f1
+				insert into servicio_laptop_f1(laptop_id,num_servicio,sucursal_id,
+							importe,diagnostico,factura)
+				select laptop_id,num_servicio,sucursal_id,
+					importe,diagnostico,factura
+				from ti_servicio_laptop_f1
 				where laptop_id = :new.laptop_id
 				and num_servicio = :new.num_servicio;
 				delete from ti_servicio_laptop_f1 where laptop_id = :new.laptop_id and num_servicio = :new.num_servicio;
@@ -34,8 +37,11 @@ begin
 						importe,diagnostico,factura)
 					values(:new.laptop_id,:new.num_servicio,:new.sucursal_id,
 						:new.importe,:new.diagnostico,:new.factura);
-					insert into servicio_laptop_f2
-					select * from ti_servicio_laptop_f2
+					insert into servicio_laptop_f2(laptop_id,num_servicio,sucursal_id,
+							importe,diagnostico,factura)
+					select laptop_id,num_servicio,sucursal_id,
+						importe,diagnostico,factura
+					from ti_servicio_laptop_f2
 					where laptop_id = :new.laptop_id
 					and num_servicio = :new.num_servicio;
 					delete from ti_servicio_laptop_f2 where laptop_id = :new.laptop_id and num_servicio = :new.num_servicio;
@@ -49,8 +55,11 @@ begin
 							importe,diagnostico,factura)
 						values(:new.laptop_id,:new.num_servicio,:new.sucursal_id,
 							:new.importe,:new.diagnostico,:new.factura);
-						insert into servicio_laptop_f3
-						select * from ti_servicio_laptop_f3
+						insert into servicio_laptop_f3(laptop_id,num_servicio,sucursal_id,
+							importe,diagnostico,factura)
+						select laptop_id,num_servicio,sucursal_id,
+							importe,diagnostico,factura
+						from ti_servicio_laptop_f3
 						where laptop_id = :new.laptop_id
 						and num_servicio = :new.num_servicio;
 						delete from ti_servicio_laptop_f3 where laptop_id = :new.laptop_id and num_servicio = :new.num_servicio;
@@ -64,8 +73,11 @@ begin
 								importe,diagnostico,factura)
 							values(:new.laptop_id,:new.num_servicio,:new.sucursal_id,
 								:new.importe,:new.diagnostico,:new.factura);
-							insert into servicio_laptop_f4
-							select * from ti_servicio_laptop_f4
+							insert into servicio_laptop_f4(laptop_id,num_servicio,sucursal_id,
+							importe,diagnostico,factura)
+							select laptop_id,num_servicio,sucursal_id,
+								importe,diagnostico,factura 
+							from ti_servicio_laptop_f4
 							where laptop_id = :new.laptop_id
 							and num_servicio = :new.num_servicio;
 							delete from ti_servicio_laptop_f4 where laptop_id = :new.laptop_id and num_servicio = :new.num_servicio;
@@ -85,28 +97,28 @@ begin
 			where laptop_id =:new.laptop_id;
 			--insercion local
 			if v_count > 0 then
-				delete from servicio_laptop_f1 where laptop_id = :old.laptop_id and num_servicio = old.num_servicio;
+				delete from servicio_laptop_f1 where laptop_id = :old.laptop_id and num_servicio = :old.num_servicio;
 			else
 				select count(*) into v_count
 				from servicio_laptop_f2
 				where laptop_id =:new.laptop_id;
 				--insercion remota s2
 				if v_count > 0 then
-					delete from servicio_laptop_f2 where laptop_id = :old.laptop_id and num_servicio = old.num_servicio;
+					delete from servicio_laptop_f2 where laptop_id = :old.laptop_id and num_servicio = :old.num_servicio;
 				else
 					select count(*) into v_count
 					from servicio_laptop_f3
 					where laptop_id =:new.laptop_id;
 					--insercion remota s3
 					if v_count > 0 then
-						delete from servicio_laptop_f3 where laptop_id = :old.laptop_id and num_servicio = old.num_servicio;
+						delete from servicio_laptop_f3 where laptop_id = :old.laptop_id and num_servicio = :old.num_servicio;
 					else 
 						select count(*) into v_count
 						from servicio_laptop_f4
 						where laptop_id =:new.laptop_id;
 						--insercion remota s4
 						if v_count > 0 then
-							delete from servicio_laptop_f4 where laptop_id = :old.laptop_id and num_servicio = old.num_servicio;
+							delete from servicio_laptop_f4 where laptop_id = :old.laptop_id and num_servicio = :old.num_servicio;
 						else
 							raise_application_error(-20020,'
 								El registro que se intenta insertar o eliminar no cumple con el esquema de fragmentación horizontal derivada.');

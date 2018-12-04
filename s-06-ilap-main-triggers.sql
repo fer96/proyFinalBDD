@@ -12,7 +12,7 @@ Prompt ==============================
 connect ilap_bdd/ilap_bdd@fdlrsbd_s1 
 @s-06-ilap-sucursal-trigger.sql 
 @s-06-ilap-fdlrs-s1-sucursal-taller-trigger.sql 
-@s-06-ilap-fdlrs-s1-sucursal-venta-trigger.sql 
+@s-06-ilap-fdlrs-s1-sucursal-venta-trigger.sql
 @s-06-ilap-laptop-trigger.sql
 @s-06-ilap-laptop-inventario-trigger.sql 
 @s-06-ilap-historico-status-laptop-trigger.sql 

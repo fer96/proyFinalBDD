@@ -7,9 +7,9 @@
 Prompt Creando objetos para leer datos BLOB
 Prompt creando directorios
 
--- el usuario ilap_bdd debe tener el privilegio 
+-- el usuario ilap_bdd debe tener el privilegio create any directory 
 
-create any directory create or replace directory proyecto_final_facturas_dir
+create or replace directory proyecto_final_facturas_dir
 	as '/tmp/bdd/proyecto-final/imagenes/facturas'; 
 create or replace directory proyecto_final_laptops_dir
 	as '/tmp/bdd/proyecto-final/imagenes/laptops';
