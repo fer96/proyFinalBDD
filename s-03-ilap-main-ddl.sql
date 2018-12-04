@@ -32,4 +32,4 @@ connect ilap_bdd/ilap_bdd@mved_s2
 
 
 Prompt Listo!
-exit;
+--exit;

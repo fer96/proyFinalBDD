@@ -36,4 +36,4 @@ connect sys/&&syspass@mved_s2 as sysdba
 
 
 Prompt Listo!
-exit;
+--exit;

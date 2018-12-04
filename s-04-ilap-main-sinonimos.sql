@@ -35,4 +35,4 @@ connect ilap_bdd/ilap_bdd@mved_s2
 @s-04-ilap-valida-sinonimos.sql
 
 prompt Listo!
-exit;
+--exit;

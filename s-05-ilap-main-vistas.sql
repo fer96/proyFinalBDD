@@ -79,4 +79,4 @@ prompt creando vistas con soporte para BLOBs
 @s-05-ilap-mved-s4-vistas-blob.sql
 
 prompt listo
-exit;
+--exit;

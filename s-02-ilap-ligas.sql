@@ -48,4 +48,4 @@ Create database link fdlrsbd_s2.unam.fi using 'fdlrsbd_s2';
 
 
 Prompt Listo!
-exit;
+--exit;
