@@ -29,7 +29,7 @@ begin
 			if (to_char(:old.fecha_status,'YYYY')>'2009') then
 				delete from historico_status_laptop_f1 where historico_status_laptop_id = :old.historico_status_laptop_id;
 			elsif (to_char(:old.fecha_status,'YYYY')<='2009') then
-				delete from historico_status_laptop_f1 where historico_status_laptop_id = :old.historico_status_laptop_id;
+				delete from historico_status_laptop_f2 where historico_status_laptop_id = :old.historico_status_laptop_id;
 			else
 				raise_application_error(-20010,
 					'El registro que se intenta insertar o eliminar no cumple con el esquema de fragmentación horizontal primaria.');

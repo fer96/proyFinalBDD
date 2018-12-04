@@ -24,7 +24,7 @@ begin
 				delete from ti_servicio_laptop_f2 where laptop_id = :new.laptop_id and num_servicio = :new.num_servicio;
 			else
 				select count(*) into v_count
-				from laptop_f4
+				from laptop_f2
 				where laptop_id = :new.laptop_id;
 				--inserción local servicio_laptop_f1
 				if v_count > 0 then

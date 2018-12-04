@@ -11,20 +11,24 @@ instead of insert or update or delete on sucursal
 	begin
 		case
 		when inserting then --INSERT
-		if (:new.es_taller = 1 and :new.es_venta = 1) or substr(:new.clave,3,2) = 'NO' then
-			insert into sucursal_f1 (sucursal_id, clave, es_taller, es_venta, nombre, latitud, longitud, url)
-			values(:new.sucursal_id, :new.clave, :new.es_taller, :new.es_venta, :new.nombre, :new.latitud, :new.longitud, :new.url);
-		elsif (:new.es_taller <> :new.es_venta) and substr(:new.clave,3,2) = 'EA' then
-			insert into sucursal_f2 (sucursal_id, clave, es_taller, es_venta, nombre, latitud, longitud, url)
-			values(:new.sucursal_id, :new.clave, :new.es_taller, :new.es_venta, :new.nombre, :new.latitud, :new.longitud, :new.url);
-		elsif (:new.es_taller <> :new.es_venta) and substr(:new.clave,3,2) = 'WS' then
-			insert into sucursal_f3 (sucursal_id, clave, es_taller, es_venta, nombre, latitud, longitud, url)
-			values(:new.sucursal_id, :new.clave, :new.es_taller, :new.es_venta, :new.nombre, :new.latitud, :new.longitud, :new.url);
-		elsif (:new.es_taller <> :new.es_venta) and substr(:new.clave,3,2) = 'SO' then
-			insert into sucursal_f4 (sucursal_id, clave, es_taller, es_venta, nombre, latitud, longitud, url)
-			values(:new.sucursal_id, :new.clave, :new.es_taller, :new.es_venta, :new.nombre, :new.latitud, :new.longitud, :new.url);
+		if (substr(:new.clave,3,2) in ('NO','EA','WS','SO')) THEN
+			if (:new.es_taller = 1 and :new.es_venta = 1) or substr(:new.clave,3,2) = 'NO' then
+				insert into sucursal_f1 (sucursal_id, clave, es_taller, es_venta, nombre, latitud, longitud, url)
+				values(:new.sucursal_id, :new.clave, :new.es_taller, :new.es_venta, :new.nombre, :new.latitud, :new.longitud, :new.url);
+			elsif (:new.es_taller <> :new.es_venta) and substr(:new.clave,3,2) = 'EA' then
+				insert into sucursal_f2 (sucursal_id, clave, es_taller, es_venta, nombre, latitud, longitud, url)
+				values(:new.sucursal_id, :new.clave, :new.es_taller, :new.es_venta, :new.nombre, :new.latitud, :new.longitud, :new.url);
+			elsif (:new.es_taller <> :new.es_venta) and substr(:new.clave,3,2) = 'WS' then
+				insert into sucursal_f3 (sucursal_id, clave, es_taller, es_venta, nombre, latitud, longitud, url)
+				values(:new.sucursal_id, :new.clave, :new.es_taller, :new.es_venta, :new.nombre, :new.latitud, :new.longitud, :new.url);
+			elsif (:new.es_taller <> :new.es_venta) and substr(:new.clave,3,2) = 'SO' then
+				insert into sucursal_f4 (sucursal_id, clave, es_taller, es_venta, nombre, latitud, longitud, url)
+				values(:new.sucursal_id, :new.clave, :new.es_taller, :new.es_venta, :new.nombre, :new.latitud, :new.longitud, :new.url);
+			else
+				raise_application_error(-20010,'El registro que se intenta insertar o eliminar no cumple con el esquema de fragmentación horizontal primaria.');
+			end if;
 		else
-			raise_application_error(-20010,'El registro que se intenta insertar o eliminar no cumple con el esquema de fragmentación horizontal primaria.');
+			raise_application_error(-20010,'El registro que se intenta insertar o eliminar no cumple con el esquema de fragmentación horizontal primaria.'); 
 		end if;
 		--UPDATE
 		when updating then 
@@ -35,9 +39,9 @@ instead of insert or update or delete on sucursal
 				delete from sucursal_f1 where sucursal_id = :old.sucursal_id;
 			elsif (:old.es_taller <> :old.es_venta) and substr(:old.clave,3,2) = 'EA' then
 				delete from sucursal_f2 where sucursal_id = :old.sucursal_id;
-			elsif (:new.es_taller <> :new.es_venta) and substr(:new.clave,3,2) = 'WS' THEN
+			elsif (:old.es_taller <> :old.es_venta) and substr(:old.clave,3,2) = 'WS' THEN
 				delete from sucursal_f3 where sucursal_id = :old.sucursal_id;
-			elsif (:new.es_taller <> :new.es_venta) and substr(:new.clave,3,2) = 'SO' THEN
+			elsif (:old.es_taller <> :old.es_venta) and substr(:old.clave,3,2) = 'SO' THEN
 				delete from sucursal_f4 where sucursal_id = :old.sucursal_id;
 			else
 				raise_application_error(-20010,

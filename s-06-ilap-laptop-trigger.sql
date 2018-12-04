@@ -54,13 +54,13 @@ begin
 			raise_application_error(-20030,'Se intentó realizar una operación update. Para proósitos del proyecto, esta operación no estará implementada.');
 		when deleting then
 			delete from laptop_f1 where laptop_id = :old.laptop_id;
-			if (substr(:new.num_serie,1,1) in ('0','1')) then
+			if (substr(:old.num_serie,1,1) in ('0','1')) then
 				delete from laptop_f2 where laptop_id = :old.laptop_id;
-			elsif (substr(:new.num_serie,1,1) in ('2','3')) then
+			elsif (substr(:old.num_serie,1,1) in ('2','3')) then
 				delete from laptop_f3 where laptop_id = :old.laptop_id;
-			elsif (substr(:new.num_serie,1,1) in ('4','5')) then
+			elsif (substr(:old.num_serie,1,1) in ('4','5')) then
 				delete from laptop_f4 where laptop_id = :old.laptop_id;
-			elsif (substr(:new.num_serie,1,1) in ('6','7','8','9')) then
+			elsif (substr(:old.num_serie,1,1) in ('6','7','8','9')) then
 				delete from laptop_f5 where laptop_id = :old.laptop_id;
 			else
 				raise_application_error(-20010,

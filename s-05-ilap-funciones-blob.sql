@@ -5,8 +5,7 @@
 
 Prompt creando funcion para extraer dato BLOB de foto_f1
 
-create or replace function get_remote_foto_f1_by_id(p_laptop_id in number)
-  return blob is
+create or replace function get_remote_foto_f1_by_id(p_laptop_id in number) return blob is
   pragma autonomous_transaction;
   v_temp_pdf blob;
 begin
@@ -37,8 +36,7 @@ show errors;
 
 Prompt creando funcion para extraer dato BLOB de servicio_laptop_f1
 
-create or replace function get_remote_serv_lap_f1_by_id(p_num_servicio in number, p_laptop_id in number) 
-	return blob is
+create or replace function get_remote_serv_lap_f1_by_id(p_num_servicio in number, p_laptop_id in number) return blob is
 	pragma autonomous_transaction;
   v_temp_pdf blob;
 begin
@@ -58,6 +56,8 @@ begin
 	--elimina los registros de la tabla temporal 
 	delete from ts_servicio_laptop_f1;
   --termina txn autónoma
+  commit;
+  return v_temp_pdf;
 	exception
   	when others then
 		--si ocurre error, termina la txn autónoma.
@@ -69,8 +69,7 @@ show errors;
 
 Prompt creando funcion para extraer dato BLOB de servicio_laptop_f2
 
-create or replace function get_remote_serv_lap_f2_by_id(p_num_servicio in number, p_laptop_id in number) 
-	return blob is
+create or replace function get_remote_serv_lap_f2_by_id(p_num_servicio in number, p_laptop_id in number) return blob is
 	pragma autonomous_transaction;
   v_temp_pdf blob;
 begin
@@ -90,6 +89,8 @@ begin
 	--elimina los registros de la tabla temporal 
 	delete from ts_servicio_laptop_f2;
   --termina txn autónoma
+  commit;
+  return v_temp_pdf;
 	exception
   	when others then
 		--si ocurre error, termina la txn autónoma.
@@ -101,8 +102,7 @@ show errors;
 
 Prompt creando funcion para extraer dato BLOB de servicio_laptop_f3
 
-create or replace function get_remote_serv_lap_f3_by_id(p_num_servicio in number, p_laptop_id in number) 
-	return blob is
+create or replace function get_remote_serv_lap_f3_by_id(p_num_servicio in number, p_laptop_id in number) return blob is
 	pragma autonomous_transaction;
   v_temp_pdf blob;
 begin
@@ -122,6 +122,8 @@ begin
 	--elimina los registros de la tabla temporal 
 	delete from ts_servicio_laptop_f3;
   --termina txn autónoma
+  commit;
+  return v_temp_pdf;
 	exception
   	when others then
 		--si ocurre error, termina la txn autónoma.
@@ -154,6 +156,8 @@ begin
 	--elimina los registros de la tabla temporal 
 	delete from ts_servicio_laptop_f4;
   --termina txn autónoma
+  commit;
+  return v_temp_pdf;
 	exception
   	when others then
 		--si ocurre error, termina la txn autónoma.
