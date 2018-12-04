@@ -38,28 +38,38 @@ Prompt Insertando datos ....
 
 begin
 	dbms_output.put_line('Insertando sucursales');
-	--es_venta = 0, es_taller = 1 
+	--es_venta = 0, es_taller = 1
+
 	@carga-inicial/sucursal-1.sql
 	--es_venta = 1, es_taller = 0 
+	
 	@carga-inicial/sucursal-2.sql
 	--es_venta= 1, es_taller = 1
+	
 	@carga-inicial/sucursal-3.sql
 	dbms_output.put_line('Insertando sucursales tipo taller'); 
 	-- id 1 al 1000
+	
 	@carga-inicial/sucursal_taller-1.sql
 	-- id 2001 al 3000
+	
 	@carga-inicial/sucursal_taller-2.sql
 	dbms_output.put_line('Insertando sucursales tipo venta'); 
 	-- id 1001 al 2000
+	
 	@carga-inicial/sucursal_venta-1.sql
 	-- id 2001 al 3000
+	
 	@carga-inicial/sucursal_venta-2.sql
 	dbms_output.put_line('Insertando laptops'); 
 	--laptops sin reemplazo 
+	
 	@carga-inicial/laptop-1.sql
 	--Algunas de estas laptops tienen reemplazo
+	
 	@carga-inicial/laptop-2.sql 
 	dbms_output.put_line('Insertando laptop inventario');
+	
 	@carga-inicial/laptop_inventario.sql
 	dbms_output.put_line('Insertando historico'); 
 	@carga-inicial/historico_status_laptop-1.sql 

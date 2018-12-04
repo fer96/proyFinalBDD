@@ -73,31 +73,31 @@ begin
 		when deleting then
 			select count(*) into v_count
 			from laptop_f4
-			where laptop_id = :new.laptop_id;
+			where laptop_id = :old.laptop_id;
 			--inserción local
 			if v_count > 0 then
-				delete from servicio_laptop_f4 where laptop_id = :new.laptop_id and num_servicio = :new.num_servicio;
+				delete from servicio_laptop_f4 where laptop_id = :old.laptop_id and num_servicio = :old.num_servicio;
 			else
 				select count(*) into v_count
 				from laptop_f1
-				where laptop_id = :new.laptop_id;
+				where laptop_id = :old.laptop_id;
 				--inserción local servicio_laptop_f1
 				if v_count > 0 then
-					delete from servicio_laptop_f1 where laptop_id = :new.laptop_id and num_servicio = :new.num_servicio;
+					delete from servicio_laptop_f1 where laptop_id = :old.laptop_id and num_servicio = :old.num_servicio;
 				else
 					select count(*) into v_count
 					from laptop_f3
-					where laptop_id = :new.laptop_id;
+					where laptop_id = :old.laptop_id;
 					--inserción local servicio_laptop_f3
 					if v_count > 0 then
-						delete from servicio_laptop_f3 where laptop_id = :new.laptop_id and num_servicio = :new.num_servicio;
+						delete from servicio_laptop_f3 where laptop_id = :old.laptop_id and num_servicio = :old.num_servicio;
 					else
 						select count(*) into v_count
 						from laptop_f2
-						where laptop_id = :new.laptop_id;
+						where laptop_id = :old.laptop_id;
 						--inserción local servicio_laptop_f4
 						if v_count > 0 then
-							delete from servicio_laptop_f2 where laptop_id = :new.laptop_id and num_servicio = :new.num_servicio;
+							delete from servicio_laptop_f2 where laptop_id = :old.laptop_id and num_servicio = :old.num_servicio;
 						else
 						raise_application_error(-20020,'El registro que se intenta insertar o eliminar no cumple con el esquema de fragmentación horizontal derivada.');
 						end if;

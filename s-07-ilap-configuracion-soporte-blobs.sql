@@ -49,7 +49,8 @@ begin
 		dest_offset => v_dest_offset,
 		src_offset  => v_src_offset
 	);
-	--cerrando blob dbms_lob.close(v_src_blob);
+	--cerrando blob 
+	dbms_lob.close(v_src_blob);
 	if v_src_blob_size = dbms_lob.getlength(v_dest_blob) then
 		dbms_output.put_line('done '|| v_src_blob_size || ' bytes read.' );
 	else
